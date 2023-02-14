@@ -69,10 +69,10 @@
           <div class="col-lg-4 col-md-7">
             <div class="card border-0 mb-0">
               <div class="card-header bg-transparent">
-                <h5 class="text-dark text-center mt-2 mb-3">Sign in</h5>
+                <h5 class="text-dark text-center mt-2 mb-3">{{ $title ?? "" }} Sign in</h5>
               </div>
               <div class="card-body px-lg-5 pt-0">
-                <form role="form" class="text-start" method="POST" action="{{route('login')}}">
+                <form role="form" class="text-start" method="POST" action="{{isset($url) ? $url : route('login')}}">
                   @csrf
                   <div class="mb-3">
                     <input type="email" class="form-control" placeholder="Email" aria-label="Email" name="email">

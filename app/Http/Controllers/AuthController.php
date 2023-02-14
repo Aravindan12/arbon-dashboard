@@ -7,8 +7,22 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
+
 class AuthController extends Controller
 {
+
+
+     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('guest')->except('logout');
+        $this->middleware('guest:admin')->except('logout');
+    }
+    
     public function login()
     {
         return view('auth.login');
@@ -21,6 +35,7 @@ class AuthController extends Controller
 
     public function dashBoard()
     {
+        // dd('d');
         return view('welcome');
     }
 
@@ -43,12 +58,12 @@ class AuthController extends Controller
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
-
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
  
             return redirect('dashboard')->with('success', 'Login Successfully');
         }
+        // dd('d');
  
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
@@ -64,5 +79,24 @@ class AuthController extends Controller
         $request->session()->regenerateToken();
     
         return redirect('login');
+    }
+
+    public function showAdminLoginForm()
+    {
+        return view('auth.login', ['url' => route('admin.login-view'), 'title'=>'Admin']);
+    }
+
+    public function adminLogin(Request $request)
+    {
+        $this->validate($request, [
+            'email'   => 'required|email',
+            'password' => 'required|min:6'
+        ]);
+
+        if (Auth::guard('admin')->attempt($request->only(['email','password']), $request->get('remember'))){
+            return redirect()->intended('/admin/dashboard');
+        }
+
+        return back()->withInput($request->only('email', 'remember'));
     }
 }
