@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,3 +33,11 @@ Route::post('/admin', [AuthController::class,'adminLogin'])->name('admin.login')
 Route::get('/admin/dashboard', function () {
     return view('admin');
 })->middleware('auth:admin');
+
+
+Route::namespace('admin')->prefix('admin')->name('admin.')->middleware(['auth:admin'])->group(function () {
+    Route::get('/users', [UserController::class,'index'])->name('users');
+    Route::get('/users_pagination', [UserController::class, 'pagination'])->name('users.pagination');
+    Route::post('/users/download', [UserController::class, 'usersListDownload'])
+    ->name('users.download');
+});

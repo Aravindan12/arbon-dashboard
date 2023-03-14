@@ -19,15 +19,9 @@
                 <div class="collapse  show " id="dashboardsExamples">
                     <ul class="nav ms-4">
                         <li class="nav-item ">
-                            <a class="nav-link " href="landing-2.html">
-                                <span class="sidenav-mini-icon"> L </span>
-                                <span class="sidenav-normal"> Landing </span>
-                            </a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link active" href="default.html">
-                                <span class="sidenav-mini-icon"> D </span>
-                                <span class="sidenav-normal"> Default </span>
+                            <a class="nav-link " href="{{route('admin.users')}}">
+                                <span class="sidenav-mini-icon"> U </span>
+                                <span class="sidenav-normal"> Users </span>
                             </a>
                         </li>
                     </ul>

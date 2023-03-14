@@ -15,5 +15,12 @@ return [
 
     'previous' => '&laquo; Previous',
     'next' => 'Next &raquo;',
+    'filter' => 'Filter',
+    'download' => 'Download',
+    'date' => 'Date',
+    'user_list' => 'User List',
+    'name' => 'Name',
+    'email' => 'Email',
+    's_no' => 'S.No',
 
 ];

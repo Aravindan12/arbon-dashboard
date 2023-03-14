@@ -35,7 +35,6 @@ class AuthController extends Controller
 
     public function dashBoard()
     {
-        // dd('d');
         return view('welcome');
     }
 
@@ -63,7 +62,6 @@ class AuthController extends Controller
  
             return redirect('dashboard')->with('success', 'Login Successfully');
         }
-        // dd('d');
  
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.',

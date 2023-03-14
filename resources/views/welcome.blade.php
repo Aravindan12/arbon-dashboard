@@ -1238,7 +1238,10 @@
     </div>
   </div>
 </div>
+
+
 <script type="text/javascript">
+  @if(Session::get('success'))
   $(document).ready(function() {
     // toastr.options.timeOut = 1500; // 1.5s
     swal({
@@ -1248,5 +1251,7 @@
          type:'success'
      })
   });
+  @endif
+
 </script>
 @endsection
