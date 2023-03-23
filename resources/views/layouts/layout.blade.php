@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="{{asset('assets/img/apple-icon.png')}}">
   <link rel="icon" type="image/png" href="{{asset('assets/img/favicon.png')}}">
+  <link href="{{asset('assets/css/style.css')}}" rel="stylesheet" />
   <title>
     Argon Dashboard
   </title>
@@ -43,9 +44,10 @@
 
     <div class="container-fluid py-4">
       @yield('content')
-      @include('layouts.footer')
     </div>
-  </main>  
+  </main>
+  @include('layouts.footer')
+
     <!-- DataTable -->
   <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
   <script src="{{ asset('assets/dataTable/datatables.min.js')}}"></script>

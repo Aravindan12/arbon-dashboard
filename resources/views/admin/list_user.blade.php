@@ -31,6 +31,13 @@
                                         title="Download Report">{{__('pagination.download')}}</button>
                                     </form>
                                 </div>
+                                <div class="col-2 text-left">
+                                    <a href="{{route('admin.users.add')}}">
+                                        <button type="button" class="btn btn-primary">
+                                            Add User
+                                        </button>
+                                    </a>
+                                </div>
 
                             </div>
                             <div class="table-responsive">
@@ -57,6 +64,12 @@
 @endsection
 
 @section('script')
+<script type="text/javascript">
+    @if ($errors->any())
+    toastr.error('{{($errors->first())}}', "", {"iconClass": 'customer-info'});
+    @endif
+
+</script>
     <script>let adminUserUrl = '{{route("admin.users.pagination")}}'; </script>
     <script src="{{ asset('assets/js/pagination/admin-user.js')}}"></script>
 @endsection

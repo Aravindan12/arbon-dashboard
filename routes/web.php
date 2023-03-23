@@ -40,4 +40,7 @@ Route::namespace('admin')->prefix('admin')->name('admin.')->middleware(['auth:ad
     Route::get('/users_pagination', [UserController::class, 'pagination'])->name('users.pagination');
     Route::post('/users/download', [UserController::class, 'usersListDownload'])
     ->name('users.download');
+    Route::get('/users/add', [UserController::class,'addUser'])->name('users.add');
+    Route::post('/users/store', [UserController::class,'storeUser'])->name('users.store');
+
 });
