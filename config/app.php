@@ -123,6 +123,9 @@ return [
 
     'cipher' => 'AES-256-CBC',
 
+    'firebase_secret_key' => env('FIREBASE_SECRET_KEY'),
+
+    'api_key' => env('API_KEY'),
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers

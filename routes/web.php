@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WebNotificationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,7 +34,10 @@ Route::post('/admin', [AuthController::class,'adminLogin'])->name('admin.login')
 Route::get('/admin/dashboard', function () {
     return view('admin');
 })->middleware('auth:admin');
-
+Route::get('/push-notificaiton', [WebNotificationController::class, 'index'])->name('push-notificaiton');
+Route::post('/store-token', [WebNotificationController::class, 'storeToken'])->name('store.token');
+Route::post('/send-web-notification', [WebNotificationController::class, 'sendWebNotification'])
+->name('send.web-notification');
 
 Route::namespace('admin')->prefix('admin')->name('admin.')->middleware(['auth:admin'])->group(function () {
     Route::get('/users', [UserController::class,'index'])->name('users');

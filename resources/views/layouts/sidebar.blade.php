@@ -24,6 +24,12 @@
                                 <span class="sidenav-normal"> Users </span>
                             </a>
                         </li>
+                        <li class="nav-item ">
+                            <a class="nav-link " href="{{route('push-notificaiton')}}">
+                                <span class="sidenav-mini-icon"> P </span>
+                                <span class="sidenav-normal"> Push Notificaiton </span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </li>

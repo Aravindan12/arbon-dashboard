@@ -133,4 +133,12 @@ class UserRepository implements UserRepositoryInterface
     {
         return $this->model->whereIn('id', $ids)->get();
     }
+
+    /**
+     * @return mixed
+     */
+    public function getDeviceKey()
+    {
+        return $this->model->whereNotNull('device_key')->pluck('device_key')->all();
+    }
 }
