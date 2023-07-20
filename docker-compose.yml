@@ -1,0 +1,21 @@
+version: '3'
+services:
+  web:
+    build: 
+      context: /var/www/html/php7.4-docker  
+      dockerfile: Dockerfile
+    container_name: arbon-dashboard
+    restart: unless-stopped
+    ports:
+      - "8004:80"
+      - "4000:4000"
+      - "3000:3000"
+    volumes:
+      - .:/var/www/html
+    networks:
+      - php74-docker_phpnetwork
+
+#Docker Networks
+networks:
+  php74-docker_phpnetwork:
+    external: true

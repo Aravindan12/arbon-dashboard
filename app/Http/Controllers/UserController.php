@@ -8,6 +8,7 @@ use App\Service\AdminUserService;
 use Illuminate\Support\Facades\Log;
 use Rap2hpoutre\FastExcel\FastExcel;
 use App\Http\Requests\AdminAddUserRequest;
+use App\Http\Requests\AdminUpdateUserRequest;
 
 class UserController extends Controller
 {
@@ -95,4 +96,46 @@ class UserController extends Controller
             return back()->with('error', $e->getMessage());
         }
     }
+
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    public function edit($id)
+    {
+        $data = $this->userRepository->find($id);
+        return view('admin.edit_user', compact('data'));
+    }
+
+    /**
+     * @param CreateRoleRequest $request
+     * @param $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function update(AdminUpdateUserRequest $request)
+    {
+        try {
+            $attributes = $request->validated();
+            $this->userRepository->update($attributes['id'], $attributes);
+            return redirect(route('admin.users'))->with('success', 'user updated succesfully.');
+        } catch (\Exception $e) {
+            return back()->with('error', $e->getMessage());
+        }
+    }
+
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function destroy($id)
+    {
+        try {
+            $this->userRepository->delete($id);
+            return redirect(route('admin.users'))->with('success', 'user deleted succesfully.');
+        } catch (\Exception $e) {
+            Log::error("role_destroy:", [$e->getMessage()]);
+            return back()->with('error', $e->getMessage());
+        }
+    }
+
 }

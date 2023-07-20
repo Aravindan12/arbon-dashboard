@@ -51,6 +51,9 @@
                                         <th scope="col" class="text-center">{{ __('pagination.s_no')}}</th>
                                         <th scope="col" class="text-center">{{ __('pagination.name')}}</th>
                                         <th scope="col" class="text-center">{{ __('pagination.email')}}</th>
+                                        <th scope="col" class="text-center" data-orderable ="false" >
+                                            Action
+                                        </th>
                                     </tr>
                                     </thead>
                                 </table>
@@ -64,12 +67,7 @@
 @endsection
 
 @section('script')
-<script type="text/javascript">
-    @if ($errors->any())
-    toastr.error('{{($errors->first())}}', "", {"iconClass": 'customer-info'});
-    @endif
 
-</script>
     <script>let adminUserUrl = '{{route("admin.users.pagination")}}'; </script>
     <script src="{{ asset('assets/js/pagination/admin-user.js')}}"></script>
 @endsection

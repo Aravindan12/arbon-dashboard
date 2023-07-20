@@ -46,5 +46,7 @@ Route::namespace('admin')->prefix('admin')->name('admin.')->middleware(['auth:ad
     ->name('users.download');
     Route::get('/users/add', [UserController::class,'addUser'])->name('users.add');
     Route::post('/users/store', [UserController::class,'storeUser'])->name('users.store');
-
+    Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
+    Route::post('/users', [UserController::class, 'update'])->name('users.update');
+    Route::get('/users/{user}/delete', [UserController::class, 'destroy'])->name('users.delete');
 });

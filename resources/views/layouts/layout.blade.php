@@ -16,7 +16,7 @@
 
   <link href="{{asset('assets/css/nucleo-icons.css')}}" rel="stylesheet" />
   <link href="{{asset('assets/css/nucleo-svg.css')}}" rel="stylesheet" />
-
+  <link href="{{asset('assets/css/toastr.min.css')}}" rel="stylesheet">
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
   <link href="{{asset('assets/css/nucleo-svg.css')}}" rel="stylesheet" />
 
@@ -54,6 +54,8 @@
   <script src="{{ asset('assets/dataTable/datatables.min.js')}}"></script>
   <script src="{{asset('assets/js/core/popper.min.js')}}"></script>
   <script src="{{asset('assets/js/core/bootstrap.min.js')}}"></script>
+  <script src="{{asset('assets/js/core/bootstrap.bundle.min.js')}}"></script>
+  {{-- <script src="{{asset('assets/js/core/jquery.slim.min.js')}}"></script> --}}
   <script src="{{asset('assets/js/plugins/perfect-scrollbar.min.js')}}"></script>
   <script src="{{asset('assets/js/plugins/smooth-scrollbar.min.js')}}"></script>
 
@@ -64,8 +66,10 @@
   <script src="{{ asset('assets/datepicker/daterangepicker.js')}}"></script>
 
   <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <script src="{{ asset('assets/js/toastr.min.js')}}"></script>
 
   <script src="{{asset('assets/js/argon-dashboard.min9c7f.js?v=2.0.5')}}"></script>
+@include('layouts.notification')
   @yield('script')
 
 </body>

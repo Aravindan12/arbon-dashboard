@@ -13,6 +13,7 @@ $(document).ready(function(){
         pagination(date);
     });
     pagination()
+    
 })
 
 function pagination(date = '') {
@@ -47,6 +48,7 @@ function pagination(date = '') {
             {data: "id"},
             {data: "name"},
             {data: "email"},
+            {data: "action"},
         ]
     });
 }
