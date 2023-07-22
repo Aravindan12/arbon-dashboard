@@ -8,6 +8,7 @@ use App\Service\AdminUserService;
 use Illuminate\Support\Facades\Log;
 use Rap2hpoutre\FastExcel\FastExcel;
 use App\Http\Requests\AdminAddUserRequest;
+use App\Http\Requests\AdminDownloadUserRequest;
 use App\Http\Requests\AdminUpdateUserRequest;
 
 class UserController extends Controller
@@ -55,7 +56,7 @@ class UserController extends Controller
      * @param $request
      * @return \Illuminate\Http\RedirectResponse|string|\Symfony\Component\HttpFoundation\StreamedResponse
      */
-    public function usersListDownload(Request $request)
+    public function usersListDownload(AdminDownloadUserRequest $request)
     {
         try {
             $data = $this->userRepository->getByUserIds($request->user_ids);

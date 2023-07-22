@@ -1,8 +1,13 @@
 <script>
 
-
+toastr.options =
+{
+    "closeButton" : true,
+    "progressBar" : true
+}
   @if(Session::has('success'))
-  		toastr.error("dd");
+
+      toastr.success("{{ Session::get('success') }}");
   @endif
 
 
@@ -21,7 +26,7 @@
   @endif
 
   @if ($errors->any())
-    toastr.error('{{($errors->first())}}', "", {"iconClass": 'customer-info'});
+    toastr.error('{{($errors->first())}}');
   @endif
 
 </script>
