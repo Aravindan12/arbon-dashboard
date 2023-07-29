@@ -28,7 +28,7 @@ class UserRepository implements UserRepositoryInterface
      */
     public function all($sort = "ASC")
     {
-        return $this->model->orderBy('sort', $sort)->get();
+        return $this->model->orderBy('created_at', $sort)->get();
     }
 
     /**
