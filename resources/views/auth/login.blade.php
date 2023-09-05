@@ -57,6 +57,17 @@
                   <div class="text-center">
                     <button type="submit" class="btn btn-primary w-100 my-4 mb-2">Sign in</button>
                   </div>
+                  <div class="form-group col-lg-12 mx-auto d-flex align-items-center my-4">
+                    <div class="border-bottom w-100 me-2"></div>
+                    <span class="me-2 small text-muted font-weight-bold text-muted">OR</span>
+                    <div class="border-bottom w-100 ms-2"></div>
+                </div>
+    
+                <div class="form-group text-center">
+                    <a href="{{route('azure.login')}}"><button type="button" class="btn btn-primary-outline  btn-block">
+                        Sign In with SSO
+                    </button></a>
+                </div>
                   <div class="mb-2 position-relative text-center">
                     <p
                       class="text-sm font-weight-bold mb-2 text-secondary text-border d-inline z-index-2 bg-white px-3">

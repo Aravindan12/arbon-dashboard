@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\SAML2LoginController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WebNotificationController;
 
@@ -19,6 +20,7 @@ use App\Http\Controllers\WebNotificationController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/azure-login', [SAML2LoginController::class, 'azureLogin'])->name('azure.login');
 
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'loginUser'])->name('login.user');
